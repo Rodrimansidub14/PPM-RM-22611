@@ -5,7 +5,7 @@ Universidad del Valle de Guatemala
 Programación de Plataformas Móviles
 Laboratorio 2
 
-
+Clase que evalua expresiones infix a postfix
 
  */
 package com.example.calclab2
