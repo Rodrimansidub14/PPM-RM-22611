@@ -1,6 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">CalcLab2</string>
     <string name="calcular">Calculate</string>
-    <string name=" Ingresa la expresión" tools:ignore="ExtraTranslation"> expresión</string>
-
+    <string name="expresion_label">expresión</string>
 </resources>
