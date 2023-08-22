@@ -4,13 +4,13 @@ plugins {
 }
 
 android {
-    namespace = "com.example.calclab2"
-    compileSdk = 34
+    namespace = "com.example.myapplicationC"
+    compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.example.calclab2"
+        applicationId = "com.example.myapplicationC"
         minSdk = 29
-        targetSdk = 34
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
 
@@ -51,7 +51,7 @@ android {
 
 dependencies {
     implementation("androidx.appcompat:appcompat-resources:1.6.1")
-    implementation("androidx.core:core-ktx:1.10.1")
+    implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
     implementation("androidx.activity:activity-compose:1.7.2")
     implementation(platform("androidx.compose:compose-bom:2023.03.00"))
