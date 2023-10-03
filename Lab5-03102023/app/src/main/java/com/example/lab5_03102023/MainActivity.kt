@@ -62,7 +62,7 @@ fun ShibeScreen() {
                     errorMessage = null  // reset the error message
                 } catch (e: Exception) {
                     imageUrl = null  // reset the image
-                    errorMessage = "Error fetching image. Please try again."
+                    errorMessage = "Error fetching image: ${e.localizedMessage}"
                 }
             }
         }) {
