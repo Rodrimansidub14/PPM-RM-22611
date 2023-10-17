@@ -1,0 +1,105 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+apply from: '../versions.gradle'
+
+android {
+  compileSdkVersion 34
+
+  defaultConfig {
+    applicationId "com.raywenderlich.rwnews"
+    minSdkVersion 21
+    targetSdkVersion 33
+    versionCode 1
+    versionName "1.0"
+    testInstrumentationRunner "com.raywenderlich.rwnews.runner.HiltTestRunner"
+  }
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+  }
+  buildFeatures {
+    viewBinding true
+  }
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+  kotlinOptions {
+    jvmTarget = '1.8'
+  }
+  sourceSets {
+    debug {
+      java.srcDirs += "$projectDir/src/debug/kotlin"
+    }
+    test {
+      java.srcDirs += "$projectDir/src/testShared/kotlin" // 1
+    }
+
+    androidTest {
+      java.srcDirs += "$projectDir/src/testShared/kotlin" // 2
+    }
+  }
+  testOptions {
+    unitTests.includeAndroidResources = true
+    unitTests.returnDefaultValues = true
+  }
+  namespace 'com.raywenderlich.rwnews'
+  configurations.configureEach {
+    resolutionStrategy {
+      force "androidx.test:monitor:$androidx_test_core_version"
+    }
+  }
+}
+
+configurations.configureEach {
+  resolutionStrategy.force "junit:junit:4.13.2"
+}
+
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "androidx.appcompat:appcompat:$app_compat_version"
+    implementation "com.android.support:recyclerview-v7:$recycler_view_version"
+    implementation "androidx.constraintlayout:constraintlayout:$constraints_layout_version"
+
+    implementation "com.google.dagger:hilt-android:$hilt_android_version"
+    implementation 'androidx.test:runner:1.5.2'
+    androidTestImplementation project(path: ':app')
+    androidTestImplementation project(path: ':app')
+    androidTestImplementation project(path: ':app')
+    androidTestImplementation project(path: ':app')
+    androidTestImplementation project(path: ':app')
+    androidTestImplementation project(path: ':app')
+    androidTestImplementation project(path: ':app')
+    androidTestImplementation project(path: ':app')
+    androidTestImplementation project(path: ':app')
+    androidTestImplementation project(path: ':app')
+    androidTestImplementation project(path: ':app')
+    androidTestImplementation project(path: ':app')
+    kapt "com.google.dagger:hilt-compiler:$hilt_android_version"
+
+    testImplementation "junit:junit:$junit_version"
+    testImplementation "com.google.truth:truth:$truth_version"
+    testImplementation "androidx.test.ext:junit:$junit_ext_version"
+
+    // Dependencies for Scenarios
+    debugImplementation "androidx.fragment:fragment-testing:$fragment_testing_version"
+    debugImplementation "androidx.test:core-ktx:$androidx_test_core_version"
+
+    androidTestImplementation "androidx.test.ext:junit:$andoidx_test_version"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_core_version"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$espresso_core_version"
+    testImplementation "com.google.dagger:hilt-android-testing:$hilt_android_version" // 1
+    testImplementation "junit:junit:4.13.2"
+    testImplementation "org.robolectric:robolectric:4.10.3"
+    kaptTest "com.google.dagger:hilt-android-compiler:$hilt_android_version" // 3
+    androidTestImplementation "com.google.dagger:hilt-android-testing:$hilt_android_version" // 1
+    kaptAndroidTest "com.google.dagger:hilt-android-compiler:$hilt_android_version" // 2
+  }
+
+
