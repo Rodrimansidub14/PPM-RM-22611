@@ -1,21 +1,22 @@
 {
   "project_info": {
-    "project_number": "770037900377",
-    "project_id": "skillful-hope-397414",
-    "storage_bucket": "skillful-hope-397414.appspot.com"
+    "project_number": "287727081060",
+    "firebase_url": "https://lab8-ppm-default-rtdb.firebaseio.com",
+    "project_id": "lab8-ppm",
+    "storage_bucket": "lab8-ppm.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:770037900377:android:40e428c3a3ab5b70a47d48",
+        "mobilesdk_app_id": "1:287727081060:android:b464dec1b480bef76f3171",
         "android_client_info": {
-          "package_name": "com.example.loginapplab4"
+          "package_name": "com.example.databasefirebase"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAo-2Ur029BvaRavQnCwXITv33Q28Mf0qY"
+          "current_key": "AIzaSyBt6Cff8Jt6xgbVhwn2CwBCijCWIvJwDNQ"
         }
       ],
       "services": {

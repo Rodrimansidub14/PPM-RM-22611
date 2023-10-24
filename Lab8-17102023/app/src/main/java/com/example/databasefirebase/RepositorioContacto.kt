@@ -5,12 +5,19 @@ import com.google.firebase.database.FirebaseDatabase
 
 //Create
 fun addContacto(contacto: Contacto) {
+    // Log the attempt to add a contact
+    Log.d("Firebase", "Attempting to add contact: $contacto")
     // Get a reference to the database
     val database = FirebaseDatabase.getInstance()
     val contactsRef = database.getReference("contactos")
-
-    contactsRef.push().setValue(contacto)
+    // Attempt to add the contact and log the result
+    contactsRef.push().setValue(contacto).addOnSuccessListener {
+        Log.d("Firebase", "Successfully added contact: $contacto")
+    }.addOnFailureListener { exception ->
+        Log.e("Firebase", "Failed to add contact: $contacto", exception)
+    }
 }
+
 //Read
 fun readContacto(onResult: (List<Contacto>)-> Unit){
     val database = FirebaseDatabase.getInstance()

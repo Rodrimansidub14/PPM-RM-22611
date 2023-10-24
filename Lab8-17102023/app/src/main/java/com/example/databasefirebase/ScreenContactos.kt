@@ -3,6 +3,7 @@ package com.example.databasefirebase
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
@@ -19,23 +20,12 @@ import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 import androidx.compose.ui.tooling.preview.Preview
 
-@Composable
-fun ContactRow(contacto: Contacto){
-    Text(contacto.nombre)
-    Text(contacto.telefono)
-    Text(contacto.correo)
 
-    Button(onClick = {updateContacto(contacto)}) {
-        Text("Actualizar")
-    }
-    Button(onClick = {deleteContacto(contacto)}) {
-        Text("Eliminar")
-    }
-}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -81,13 +71,71 @@ fun ScreenContactos() {
         }) {
             Text("Agregar Contacto")
         }
-        LazyColumn {
-            items(contactos.size) { index ->
-                ContactRow(contactos[index])
+
+        }
+    }
+
+@Composable
+fun UpdateScreen(
+    contact: Contacto, // Pass the contact to update as a parameter
+    onUpdateClick: (Contacto) -> Unit // Callback to handle the update action
+) {
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        // Add input fields for updating contact details
+        // For example, you can use TextFields for name, phone, email, etc.
+
+        // Add a button to trigger the update action
+        Button(
+            onClick = {
+                // Create a new Contacto object with updated data
+                val updatedContact = Contacto(
+                    id = contact.id,
+                    nombre = "",
+                    telefono = "",
+                    correo = ""
+                )
+
+                // Call the callback function to update the contact
+                onUpdateClick(updatedContact)
             }
+        ) {
+            Text("Update Contact")
         }
     }
 }
+
+@Composable
+fun DeleteScreen(
+    contact: Contacto, // Pass the contact to delete as a parameter
+    onDeleteClick: (Contacto) -> Unit // Callback to handle the delete action
+) {
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        // Display contact details
+        Text("Name: ${contact.nombre}")
+        Text("Phone: ${contact.telefono}")
+        Text("Email: ${contact.correo}")
+
+        // Add a button to trigger the delete action
+        Button(
+            onClick = {
+                // Call the callback function to delete the contact
+                onDeleteClick(contact)
+            }
+        ) {
+            Text("Delete Contact")
+        }
+    }
+}
+
+
 
 
 
