@@ -1,4 +1,4 @@
-package com.example.lab10_24102023
+package com.example.lab10_24102023.ui.theme
 
 import android.app.Activity
 import android.content.Context
@@ -27,7 +27,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.lab10_24102023.ui.theme.Lab1024102023Theme
+import com.example.lab10_24102023.R
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -46,7 +46,21 @@ class LoginActivity : ComponentActivity() {
         }
     }
 
+    @OptIn(ExperimentalMaterial3Api::class)
+    @Composable
+    fun MyApp() {
+        Lab1024102023Theme {
+            // A surface container using the 'background' color from the theme
+            Surface {
+                val navController = rememberNavController()
+                NavHost(navController, startDestination = "loginScreen") {
+                    composable("loginScreen") { LoginScreen(navController) }
+                    composable("registerScreen") { RegisterScreen(navController) }
 
+                }
+            }
+        }
+    }
 
     @Composable
     fun GoogleSignInLauncher(onResult: (Task<GoogleSignInAccount>) -> Unit): ManagedActivityResultLauncher<Intent, ActivityResult>? {

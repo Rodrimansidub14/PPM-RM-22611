@@ -61,7 +61,6 @@ dependencies {
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
     implementation("androidx.compose.ui:ui-android:1.5.4")
-    implementation("androidx.compose.ui:ui-desktop:1.6.0-alpha08")
     val lifecycle_version = "2.6.2"
 
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")

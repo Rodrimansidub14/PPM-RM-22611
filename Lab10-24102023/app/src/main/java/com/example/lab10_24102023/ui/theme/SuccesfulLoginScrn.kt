@@ -1,4 +1,4 @@
-package com.example.lab10_24102023
+package com.example.lab10_24102023.ui.theme
 
 import android.annotation.SuppressLint
 import android.os.Bundle
