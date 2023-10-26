@@ -37,30 +37,9 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 
 
-class LoginActivity : ComponentActivity() {
-    @OptIn(ExperimentalMaterial3Api::class)
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            MyApp()
-        }
-    }
 
-    @OptIn(ExperimentalMaterial3Api::class)
-    @Composable
-    fun MyApp() {
-        Lab1024102023Theme {
-            // A surface container using the 'background' color from the theme
-            Surface {
-                val navController = rememberNavController()
-                NavHost(navController, startDestination = "loginScreen") {
-                    composable("loginScreen") { LoginScreen(navController) }
-                    composable("registerScreen") { RegisterScreen(navController) }
 
-                }
-            }
-        }
-    }
+
 
     @Composable
     fun GoogleSignInLauncher(onResult: (Task<GoogleSignInAccount>) -> Unit): ManagedActivityResultLauncher<Intent, ActivityResult>? {
@@ -241,4 +220,4 @@ class LoginActivity : ComponentActivity() {
 
         }
     }
-}
+

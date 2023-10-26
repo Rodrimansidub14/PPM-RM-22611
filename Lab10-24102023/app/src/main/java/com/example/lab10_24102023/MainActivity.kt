@@ -10,23 +10,36 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.lab10_24102023.ui.theme.Lab1024102023Theme
+import com.example.lab10_24102023.ui.theme.LoginScreen
+import com.example.lab10_24102023.ui.theme.RegisterScreen
 
 
 class MainActivity : ComponentActivity() {
+    @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Lab1024102023Theme {
-                // A surface container using the 'background' color from the theme
-                Surface {
-                    MyApp()
-                }
+            MyApp()
+        }
+    }
+    }
+
+
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun MyApp() {
+    Lab1024102023Theme {
+        // A surface container using the 'background' color from the theme
+        Surface {
+            val navController = rememberNavController()
+            NavHost(navController, startDestination = "loginScreen") {
+                composable("loginScreen") { LoginScreen(navController) }
+                composable("registerScreen") { RegisterScreen(navController) }
+
             }
         }
     }
 }
-
-
-
 
 
